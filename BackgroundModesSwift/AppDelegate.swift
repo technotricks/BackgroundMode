@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreMotion
-
+import UserNotifications
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var knockReset : Double = 2.0
     
 
+    
+    private func requestNotificationAuthorization(application:UIApplication){
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+
+        center.requestAuthorization(options: options) { (granted, error) in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+//    private func requestLocationAuthorization(){
+//
+//            let manager = CLLocationManager()
+//
+//            manager.requestAlwaysAuthorization()
+//
+//    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow()
@@ -32,23 +54,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.8392156863, green: 0.1882352941, blue: 0.1921568627, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = #colorLiteral(red: 0.1764705882, green: 0.2039215686, blue: 0.2117647059, alpha: 1)
         
-        MotionKit.Singleton.sharedInstance.getAccelerometerValues(interval: 1) { (x, y, z) in
-                                
-                                print("MotionKit\(x)");
-                            }
-           //Motion Manager Logic
-            if motionManager.isDeviceMotionAvailable{
-              motionManager.deviceMotionUpdateInterval = motionUpdateInterval
-        
-        
-               motionManager.startDeviceMotionUpdates(to: OperationQueue(), withHandler: { deviceMotion, error in
-        
-                      print("ACCC",deviceMotion?.userAcceleration.x)
-                    }
-        
-                    )
-        
-            }
+        //Notification register
+        requestNotificationAuthorization(application: application)
+//        requestLocationAuthorization()
+//        
+//        MotionKit.Singleton.sharedInstance.getAccelerometerValues(interval: 1) { (x, y, z) in
+//                                
+//                                print("MotionKit\(x)");
+//                            }
+//           //Motion Manager Logic
+//            if motionManager.isDeviceMotionAvailable{
+//              motionManager.deviceMotionUpdateInterval = motionUpdateInterval
+//        
+//        
+//               motionManager.startDeviceMotionUpdates(to: OperationQueue(), withHandler: { deviceMotion, error in
+//        
+//                      print("ACCC",deviceMotion?.userAcceleration.x)
+//                    }
+//        
+//                    )
+//        
+//            }
         //    //End Motion Manager Logiv
         
         return true
@@ -78,4 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
 

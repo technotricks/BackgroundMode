@@ -7,24 +7,27 @@
 //
 
 import TinyConstraints
-import CoreLocation
+//import CoreLocation
 import MapKit
-
+import UserNotifications
 class LocationViewController: UIViewController {
     
     private var locations: [MKPointAnnotation] = []
     
-    private lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.delegate = self
-        // TODO: set desiredAccuracy to kCLLocationAccuracyBest
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        // TODO: requestAlwaysAuthorization
-        manager.requestAlwaysAuthorization()
-        // TODO: set allowsBackgroundLocationUpdates to true
-        manager.allowsBackgroundLocationUpdates = true
-        return manager
-    }()
+//    private lazy var locationManager: CLLocationManager = {
+//        let manager = CLLocationManager()
+//        manager.delegate = self
+//        // TODO: set desiredAccuracy to kCLLocationAccuracyBest
+//        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//        // TODO: requestAlwaysAuthorization
+//        manager.requestAlwaysAuthorization()
+//        // TODO: set allowsBackgroundLocationUpdates to true
+//        manager.allowsBackgroundLocationUpdates = true
+//
+////        manager.pausesLocationUpdatesAutomatically = true
+//        return manager
+//    }()
+    
     
     lazy var mapView: MKMapView = {
         var mv = MKMapView()
@@ -47,9 +50,14 @@ class LocationViewController: UIViewController {
         
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-            locationManager.startUpdatingLocation()
+//            locationManager.startUpdatingLocation()
+//            locationManager.startMonitoringSignificantLocationChanges()
+//            localNotification()
+            LocationKit.Singleton.sharedInstance.startUpdatingLocation()
+
         } else {
-            locationManager.stopUpdatingLocation()
+//            locationManager.stopUpdatingLocation()
+             LocationKit.Singleton.sharedInstance.stopUpdatingLocation()
         }
         
         startUpdatingLocationButton.setTitle(startUpdatingLocationButton.isSelected ? "Stop Updating Location" : "Start Updating Location", for: .normal)
@@ -60,6 +68,14 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupViews()
+        
+        LocationKit.Singleton.sharedInstance.delegate = self
+    }
+    
+    func localNotification(){
+        let notificationPublisher = NotificationPublisher()
+        
+        notificationPublisher.sendNotification(title: "Test", subtitle: "Sub test", body: "Content of the noification", badge: 1, delayInterval: nil)
     }
     
     func setupViews() {
@@ -76,9 +92,10 @@ class LocationViewController: UIViewController {
 }
 
 // MARK: - CLLocationManagerDelegate
-extension LocationViewController: CLLocationManagerDelegate {
+extension LocationViewController: LocationKitDelegate {
+
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationdidUpdateLocations(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let mostRecentLocation = locations.last else {
             return
         }
@@ -109,7 +126,15 @@ extension LocationViewController: CLLocationManagerDelegate {
         }
         else {
             print("BG LOcation== Lat= \(mostRecentLocation.coordinate.latitude) Lng \(mostRecentLocation.coordinate.longitude)")
+            
+        
+            
+            
+            
+            
         }
+        
+         localNotification()
     }
     
 }

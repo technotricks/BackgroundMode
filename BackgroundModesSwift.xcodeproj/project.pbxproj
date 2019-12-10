@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AAE5A538239E59A000C15323 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A537239E59A000C15323 /* SensorViewController.swift */; };
 		AAE5A53A239E5C6400C15323 /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A539239E5C6400C15323 /* MotionKit.swift */; };
+		AAEA5E6E239F3D49004C546A /* NotificationPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA5E6D239F3D49004C546A /* NotificationPublisher.swift */; };
+		AAEA5E70239F5FA2004C546A /* AppDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA5E6F239F5FA2004C546A /* AppDelegateExt.swift */; };
+		AAEA5E73239F8A28004C546A /* LocationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA5E72239F8A28004C546A /* LocationKit.swift */; };
 		C9C51E4621C1A91400E6ABE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C51E4521C1A91400E6ABE5 /* AppDelegate.swift */; };
 		C9C51E4821C1A91400E6ABE5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C51E4721C1A91400E6ABE5 /* MainTabBarController.swift */; };
 		C9C51E4A21C1A91500E6ABE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C51E4921C1A91500E6ABE5 /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 		5230F4D7BA160BAA978FEC37 /* Pods-BackgroundModesSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundModesSwift.release.xcconfig"; path = "Target Support Files/Pods-BackgroundModesSwift/Pods-BackgroundModesSwift.release.xcconfig"; sourceTree = "<group>"; };
 		AAE5A537239E59A000C15323 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		AAE5A539239E5C6400C15323 /* MotionKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionKit.swift; sourceTree = "<group>"; };
+		AAEA5E6D239F3D49004C546A /* NotificationPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPublisher.swift; sourceTree = "<group>"; };
+		AAEA5E6F239F5FA2004C546A /* AppDelegateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExt.swift; sourceTree = "<group>"; };
+		AAEA5E72239F8A28004C546A /* LocationKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationKit.swift; sourceTree = "<group>"; };
 		C9C51E4221C1A91400E6ABE5 /* BackgroundModesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundModesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C51E4521C1A91400E6ABE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9C51E4721C1A91400E6ABE5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,15 @@
 				D71614616221DF2A6E7260F9 /* Pods_BackgroundModesSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAEA5E71239F8A02004C546A /* MobilityKit */ = {
+			isa = PBXGroup;
+			children = (
+				AAE5A539239E5C6400C15323 /* MotionKit.swift */,
+				AAEA5E72239F8A28004C546A /* LocationKit.swift */,
+			);
+			path = MobilityKit;
 			sourceTree = "<group>";
 		};
 		C74B5E88F367CA94D044A71C /* Pods */ = {
@@ -98,7 +113,9 @@
 				C9C51E5421C1A95400E6ABE5 /* FlatUIColorsSwift.xcassets */,
 				C9C51E4B21C1A91500E6ABE5 /* LaunchScreen.storyboard */,
 				C9C51E4E21C1A91500E6ABE5 /* Info.plist */,
-				AAE5A539239E5C6400C15323 /* MotionKit.swift */,
+				AAEA5E71239F8A02004C546A /* MobilityKit */,
+				AAEA5E6D239F3D49004C546A /* NotificationPublisher.swift */,
+				AAEA5E6F239F5FA2004C546A /* AppDelegateExt.swift */,
 			);
 			path = BackgroundModesSwift;
 			sourceTree = "<group>";
@@ -219,9 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEA5E6E239F3D49004C546A /* NotificationPublisher.swift in Sources */,
+				AAEA5E73239F8A28004C546A /* LocationKit.swift in Sources */,
 				AAE5A538239E59A000C15323 /* SensorViewController.swift in Sources */,
 				C9C51E4821C1A91400E6ABE5 /* MainTabBarController.swift in Sources */,
 				AAE5A53A239E5C6400C15323 /* MotionKit.swift in Sources */,
+				AAEA5E70239F5FA2004C546A /* AppDelegateExt.swift in Sources */,
 				C9C51E4621C1A91400E6ABE5 /* AppDelegate.swift in Sources */,
 				C9C51E5721C1A99500E6ABE5 /* AudioViewController.swift in Sources */,
 				C9C51E5921C1A9B800E6ABE5 /* LocationViewController.swift in Sources */,
