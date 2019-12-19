@@ -28,11 +28,15 @@ class LocationKit :NSObject{
         let manager = CLLocationManager()
         manager.delegate = self
         // TODO: set desiredAccuracy to kCLLocationAccuracyBest
-        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        
+//        manager.distanceFilter = 500
         // TODO: requestAlwaysAuthorization
         manager.requestAlwaysAuthorization()
         // TODO: set allowsBackgroundLocationUpdates to true
         manager.allowsBackgroundLocationUpdates = true
+        manager.pausesLocationUpdatesAutomatically = false
+        
         
         return manager
     }()
@@ -41,6 +45,8 @@ class LocationKit :NSObject{
     func startUpdatingLocation() {
         
         locationManager.startUpdatingLocation()
+        locationManager.startMonitoringSignificantLocationChanges()
+
     }
     
     func stopUpdatingLocation() {
@@ -58,4 +64,5 @@ extension  LocationKit : CLLocationManagerDelegate{
         self.delegate?.locationdidUpdateLocations(manager: manager, didUpdateLocations: locations)
 
     }
+    
 }

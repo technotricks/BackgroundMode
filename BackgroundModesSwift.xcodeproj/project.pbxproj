@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA156A2D23A8F52D000DE3D7 /* LocationNotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA156A2C23A8F52D000DE3D7 /* LocationNotificationScheduler.swift */; };
+		AA156A3023A8F574000DE3D7 /* LocationNotificationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA156A2F23A8F574000DE3D7 /* LocationNotificationInfo.swift */; };
+		AA156A3223A8F591000DE3D7 /* LocationNotificationSchedulerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA156A3123A8F591000DE3D7 /* LocationNotificationSchedulerDelegate.swift */; };
 		AAE5A538239E59A000C15323 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A537239E59A000C15323 /* SensorViewController.swift */; };
 		AAE5A53A239E5C6400C15323 /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE5A539239E5C6400C15323 /* MotionKit.swift */; };
 		AAEA5E6E239F3D49004C546A /* NotificationPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA5E6D239F3D49004C546A /* NotificationPublisher.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		4DAEAA7F9A0C016C4EE8AFD0 /* Pods-BackgroundModesSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundModesSwift.debug.xcconfig"; path = "Target Support Files/Pods-BackgroundModesSwift/Pods-BackgroundModesSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		5230F4D7BA160BAA978FEC37 /* Pods-BackgroundModesSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundModesSwift.release.xcconfig"; path = "Target Support Files/Pods-BackgroundModesSwift/Pods-BackgroundModesSwift.release.xcconfig"; sourceTree = "<group>"; };
+		AA156A2C23A8F52D000DE3D7 /* LocationNotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationScheduler.swift; sourceTree = "<group>"; };
+		AA156A2F23A8F574000DE3D7 /* LocationNotificationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationInfo.swift; sourceTree = "<group>"; };
+		AA156A3123A8F591000DE3D7 /* LocationNotificationSchedulerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationSchedulerDelegate.swift; sourceTree = "<group>"; };
 		AAE5A537239E59A000C15323 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		AAE5A539239E5C6400C15323 /* MotionKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionKit.swift; sourceTree = "<group>"; };
 		AAEA5E6D239F3D49004C546A /* NotificationPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPublisher.swift; sourceTree = "<group>"; };
@@ -64,9 +70,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AA156A2E23A8F54F000DE3D7 /* LocationNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				AA156A2C23A8F52D000DE3D7 /* LocationNotificationScheduler.swift */,
+				AA156A2F23A8F574000DE3D7 /* LocationNotificationInfo.swift */,
+				AA156A3123A8F591000DE3D7 /* LocationNotificationSchedulerDelegate.swift */,
+			);
+			path = LocationNotifier;
+			sourceTree = "<group>";
+		};
 		AAEA5E71239F8A02004C546A /* MobilityKit */ = {
 			isa = PBXGroup;
 			children = (
+				AA156A2E23A8F54F000DE3D7 /* LocationNotifier */,
 				AAE5A539239E5C6400C15323 /* MotionKit.swift */,
 				AAEA5E72239F8A28004C546A /* LocationKit.swift */,
 			);
@@ -237,9 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAEA5E6E239F3D49004C546A /* NotificationPublisher.swift in Sources */,
+				AA156A2D23A8F52D000DE3D7 /* LocationNotificationScheduler.swift in Sources */,
 				AAEA5E73239F8A28004C546A /* LocationKit.swift in Sources */,
 				AAE5A538239E59A000C15323 /* SensorViewController.swift in Sources */,
+				AA156A3223A8F591000DE3D7 /* LocationNotificationSchedulerDelegate.swift in Sources */,
 				C9C51E4821C1A91400E6ABE5 /* MainTabBarController.swift in Sources */,
+				AA156A3023A8F574000DE3D7 /* LocationNotificationInfo.swift in Sources */,
 				AAE5A53A239E5C6400C15323 /* MotionKit.swift in Sources */,
 				AAEA5E70239F5FA2004C546A /* AppDelegateExt.swift in Sources */,
 				C9C51E4621C1A91400E6ABE5 /* AppDelegate.swift in Sources */,

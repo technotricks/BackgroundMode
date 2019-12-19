@@ -13,21 +13,7 @@ import UserNotifications
 class LocationViewController: UIViewController {
     
     private var locations: [MKPointAnnotation] = []
-    
-//    private lazy var locationManager: CLLocationManager = {
-//        let manager = CLLocationManager()
-//        manager.delegate = self
-//        // TODO: set desiredAccuracy to kCLLocationAccuracyBest
-//        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-//        // TODO: requestAlwaysAuthorization
-//        manager.requestAlwaysAuthorization()
-//        // TODO: set allowsBackgroundLocationUpdates to true
-//        manager.allowsBackgroundLocationUpdates = true
-//
-////        manager.pausesLocationUpdatesAutomatically = true
-//        return manager
-//    }()
-    
+
     
     lazy var mapView: MKMapView = {
         var mv = MKMapView()
@@ -70,12 +56,16 @@ class LocationViewController: UIViewController {
         setupViews()
         
         LocationKit.Singleton.sharedInstance.delegate = self
+        
+        
+
     }
     
     func localNotification(){
         let notificationPublisher = NotificationPublisher()
-        
+
         notificationPublisher.sendNotification(title: "Test", subtitle: "Sub test", body: "Content of the noification", badge: 1, delayInterval: nil)
+        
     }
     
     func setupViews() {
@@ -138,5 +128,6 @@ extension LocationViewController: LocationKitDelegate {
     }
     
 }
+
 
 

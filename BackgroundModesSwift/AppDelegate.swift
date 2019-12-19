@@ -11,6 +11,7 @@ import CoreMotion
 import UserNotifications
 import CoreLocation
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -88,6 +89,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        DispatchQueue.global(qos: .background).async {
+
+            // Background Thread
+
+            DispatchQueue.main.async {
+                LocationKit.Singleton.sharedInstance.delegate = self
+                LocationKit.Singleton.sharedInstance.startUpdatingLocation()
+            }
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -103,6 +114,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+
+extension AppDelegate : LocationKitDelegate{
+    func locationdidUpdateLocations(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        localNotification()
+        
+        
+    }
+    
+    func localNotification(){
+           let notificationPublisher = NotificationPublisher()
+
+           notificationPublisher.sendNotification(title: "Test", subtitle: "Sub test", body: "Content of the noification", badge: 1, delayInterval: nil)
+           
+       }
+    
+    
 }
 
 
